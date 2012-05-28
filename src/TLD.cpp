@@ -366,8 +366,8 @@ void TLD::bbPoints(vector<cv::Point2f>& points,const BoundingBox& bb){
   int max_pts=10;
   int margin_h=0;
   int margin_v=0;
-  int stepx = ceil((bb.width-2*margin_h)/max_pts);
-  int stepy = ceil((bb.height-2*margin_v)/max_pts);
+  int stepx = ceil((bb.width-2*margin_h)/(float)max_pts);
+  int stepy = ceil((bb.height-2*margin_v)/(float)max_pts);
   for (int y=bb.y+margin_v;y<bb.y+bb.height-margin_v;y+=stepy){
       for (int x=bb.x+margin_h;x<bb.x+bb.width-margin_h;x+=stepx){
           points.push_back(Point2f(x,y));
@@ -404,10 +404,10 @@ void TLD::bbPredict(const vector<cv::Point2f>& points1,const vector<cv::Point2f>
   float s1 = 0.5*(s-1)*bb1.width;
   float s2 = 0.5*(s-1)*bb1.height;
   printf("s= %f s1= %f s2= %f \n",s,s1,s2);
-  bb2.x = round( bb1.x + dx -s1);
-  bb2.y = round( bb1.y + dy -s2);
-  bb2.width = round(bb1.width*s);
-  bb2.height = round(bb1.height*s);
+  bb2.x = (int)(bb1.x + dx - s1 + 0.5f);
+  bb2.y = (int)(bb1.y + dy - s2 + 0.5f);
+  bb2.width = (int)(bb1.width*s + 0.5f);
+  bb2.height = (int)(bb1.height*s + 0.5f);
   printf("predicted bb: %d %d %d %d\n",bb2.x,bb2.y,bb2.br().x,bb2.br().y);
 }
 
@@ -572,16 +572,17 @@ void TLD::buildGrid(const cv::Mat& img, const cv::Rect& box){
   Size scale;
   int sc=0;
   for (int s=0;s<21;s++){
-    width = round(box.width*SCALES[s]);
-    height = round(box.height*SCALES[s]);
+    width = (int)(box.width*SCALES[s] + 0.5f);
+    height = (int)(box.height*SCALES[s] + 0.5f);
     min_bb_side = min(height,width);
     if (min_bb_side < min_win || width > img.cols || height > img.rows)
       continue;
     scale.width = width;
     scale.height = height;
     scales.push_back(scale);
-    for (int y=1;y<img.rows-height;y+=round(SHIFT*min_bb_side)){
-      for (int x=1;x<img.cols-width;x+=round(SHIFT*min_bb_side)){
+	const int step = (int)(SHIFT*min_bb_side + 0.5f);
+    for (int y=1;y<img.rows-height;y+=step){
+      for (int x=1;x<img.cols-width;x+=step){
         bbox.x = x;
         bbox.y = y;
         bbox.width = width;
@@ -670,9 +671,9 @@ int TLD::clusterBB(const vector<BoundingBox>& dbb,vector<int>& indexes){
       }
   }
   //2. Initialize disjoint clustering
- float L[c-1]; //Level
- int nodes[c-1][2];
- int belongs[c];
+ vector<float> L(c - 1);
+ vector<vector<int>> nodes(c - 1, vector<int>(2)); 
+ vector<int> belongs(c);
  int m=c;
  for (int i=0;i<c;i++){
     belongs[i]=i;
@@ -704,7 +705,7 @@ int TLD::clusterBB(const vector<BoundingBox>& dbb,vector<int>& indexes){
              if (visited)
                max_idx++;
          }
-         return max_idx;
+		 return max_idx;
      }
 
  //4. Merge clusters and assign level
@@ -717,6 +718,7 @@ int TLD::clusterBB(const vector<BoundingBox>& dbb,vector<int>& indexes){
      }
      m++;
  }
+ 
  return 1;
 
 }

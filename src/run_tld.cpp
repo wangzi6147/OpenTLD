@@ -127,7 +127,7 @@ int main(int argc, char * argv[]){
       cvtColor(frame, last_gray, CV_RGB2GRAY);
       frame.copyTo(first);
   }else{
-      capture.set(CV_CAP_PROP_FRAME_WIDTH,340);
+      capture.set(CV_CAP_PROP_FRAME_WIDTH,320);
       capture.set(CV_CAP_PROP_FRAME_HEIGHT,240);
   }
 
