@@ -4,6 +4,7 @@
 #include <sstream>
 #include <TLD.h>
 #include <stdio.h>
+#include <videoInput.h>
 using namespace cv;
 using namespace std;
 //Global variables
@@ -86,7 +87,8 @@ void read_options(int argc, char** argv,VideoCapture& capture,FileStorage &fs){
       }
       if (strcmp(argv[i],"-p")==0){
           if (argc>i){
-              fs.open(argv[i+1], FileStorage::READ);
+              if(!fs.open(argv[i+1], FileStorage::READ))
+				  printf("Couldn't open parameters file\n");
           }
           else
             print_help(argv);
@@ -95,22 +97,47 @@ void read_options(int argc, char** argv,VideoCapture& capture,FileStorage &fs){
           tl = false;
       }
       if (strcmp(argv[i],"-r")==0){
-          rep = true;
+		  if(fromfile)
+			rep = true;
+		  else
+			printf("Cannot repeat live captures. Ignoring \"-r\" option.\n");
       }
   }
 }
 
 int main(int argc, char * argv[]){
+  //create a videoInput object
+  videoInput VI;
+  
+  //Prints out a list of available devices and returns num of devices found
+  int numDevices = VI.listDevices();	
+
+  int device = 1;  //this could be any deviceID that shows up in listDevices
+
   VideoCapture capture;
-  capture.open(0);
   FileStorage fs;
   //Read options
   read_options(argc,argv,capture,fs);
+  int width, height;
+  unsigned char * framePixels;    
   //Init camera
-  if (!capture.isOpened())
-  {
+  if(!fromfile) {
+	if(!VI.setupDevice(device, 320, 240)) {
+	  cout << "capture device failed to open!" << endl;
+	  return 1;
+    }
+    //As requested width and height can not always be accomodated
+    //make sure to check the size once the device is setup
+
+    width = VI.getWidth(device);
+    height = VI.getHeight(device);
+    int size = VI.getSize(device);	
+
+	framePixels = new unsigned char[size];        
+  }
+  else if(!capture.isOpened()) {
 	cout << "capture device failed to open!" << endl;
-    return 1;
+	return 1;
   }
   //Register mouse callback to draw the bounding box
   cvNamedWindow("TLD",CV_WINDOW_AUTOSIZE);
@@ -126,20 +153,18 @@ int main(int argc, char * argv[]){
       capture >> frame;
       cvtColor(frame, last_gray, CV_RGB2GRAY);
       frame.copyTo(first);
-  }else{
-      capture.set(CV_CAP_PROP_FRAME_WIDTH,320);
-      capture.set(CV_CAP_PROP_FRAME_HEIGHT,240);
+  }
+  else {
+	  while(!VI.isFrameNew(device));
+	  VI.getPixels(device, framePixels, false, true);
+	  first = cv::Mat(height, width, CV_8UC3, framePixels);
   }
 
   ///Initialization
 GETBOUNDINGBOX:
   while(!gotBB)
   {
-    if (!fromfile){
-      capture >> frame;
-    }
-    else
-      first.copyTo(frame);
+    first.copyTo(frame);
     cvtColor(frame, last_gray, CV_RGB2GRAY);
     drawBox(frame,box);
     imshow("TLD", frame);
@@ -168,7 +193,13 @@ GETBOUNDINGBOX:
   int frames = 1;
   int detections = 1;
 REPEAT:
-  while(capture.read(frame)){
+  while((fromfile && capture.read(frame)) || !fromfile){
+	if(!fromfile) {
+		while(!VI.isFrameNew(device));
+		VI.getPixels(device, framePixels, false, true);
+		frame = cv::Mat(height, width, CV_8UC3, framePixels);
+	}
+		
     //get frame
     cvtColor(frame, current_gray, CV_RGB2GRAY);
     //Process Frame
