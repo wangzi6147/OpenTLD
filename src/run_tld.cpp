@@ -193,7 +193,7 @@ GETBOUNDINGBOX:
   int frames = 1;
   int detections = 1;
 REPEAT:
-  DWORD startTime = GetTickCount();
+  int64 startTime = getTickCount();
   while((fromfile && capture.read(frame)) || !fromfile){
 	if(!fromfile) {
 		while(!VI.isFrameNew(device));
@@ -219,8 +219,8 @@ REPEAT:
     pts1.clear();
     pts2.clear();
     frames++;
-	DWORD curTime = GetTickCount();
-	printf("FPS: %f\n", frames / ((curTime - startTime) / 1000.0f));
+	int64 curTime = getTickCount();
+	printf("FPS: %f\n", frames / ((curTime - startTime) / getTickFrequency()));
     printf("Detection rate: %d/%d\n",detections,frames);
     if (cvWaitKey(33) == 'q')
       break;
