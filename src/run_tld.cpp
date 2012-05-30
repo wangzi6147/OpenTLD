@@ -206,9 +206,7 @@ REPEAT:
     //Process Frame
     tld.processFrame(last_gray,current_gray,pts1,pts2,pbox,status,tl,bb_file);
     //Draw Points
-    if (status){
-      drawPoints(frame,pts1);
-      drawPoints(frame,pts2,Scalar(0,255,0));
+    if (status) {
       drawBox(frame,pbox);
       detections++;
     }
@@ -220,8 +218,7 @@ REPEAT:
     pts2.clear();
     frames++;
 	int64 curTime = getTickCount();
-	printf("FPS: %f\n", frames / ((curTime - startTime) / getTickFrequency()));
-    printf("Detection rate: %d/%d\n",detections,frames);
+	printf("FPS: %f\t\r", frames / ((curTime - startTime) / getTickFrequency()));
     if (cvWaitKey(33) == 'q')
       break;
   }
