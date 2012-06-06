@@ -11,7 +11,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 link_directories(${OpenCV_LIB_DIR})
 
-target_link_libraries(opentld main ${OpenCV_LIBS})
+target_link_libraries(opentld main videoInput ${OpenCV_LIBS})
 
 #set_target_properties(opentld PROPERTIES OUTPUT_NAME ../opentld)
 
