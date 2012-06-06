@@ -24,7 +24,7 @@ add_library(tld TLD.cpp)
 #executables
 add_executable(run_tld run_tld.cpp)
 #link the libraries
-target_link_libraries(run_tld tld LKTracker ferNN tld_utils ${OpenCV_LIBS})
+target_link_libraries(run_tld tld LKTracker ferNN tld_utils videoInput ${OpenCV_LIBS})
 #set optimization level 
 set(CMAKE_BUILD_TYPE Release)
 
