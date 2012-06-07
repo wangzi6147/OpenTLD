@@ -53,17 +53,29 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp -fPIC")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -fPIC")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lgomp")
 
-include_directories(src/cvblobs src/imacq src/config src/tld src/mftracker src/main)
+find_package(OpenCV REQUIRED)
+
+include_directories(src/cvblobs src/tld src/mftracker ${OpenCV_INCLUDE_DIRS})
 
 #-------------------------------------------------------------------------------
-#add subdirectories
-add_subdirectory(src/imacq)
-add_subdirectory(src/cvblobs)
-add_subdirectory(src/config)
-add_subdirectory(src/tld)
-add_subdirectory(src/mftracker)
-add_subdirectory(src/main)
-add_subdirectory(src)
+
+file(GLOB cvblobs_SOURCES src/cvblobs/*.cpp)
+file(GLOB cvblobs_HEADERS src/cvblobs/*.h)
+file(GLOB mftracker_SOURCES src/mftracker/*.cpp)
+file(GLOB mftracker_HEADERS src/mftracker/*.h)
+file(GLOB tld_SOURCES src/tld/*.cpp)
+file(GLOB tld_HEADERS src/tld/*.h)
+
+SOURCE_GROUP(cvblobs FILES ${cvblobs_SOURCES} ${cvblobs_HEADERS})
+SOURCE_GROUP(mftracker/Source FILES ${mftracker_SOURCES} ${mftracker_HEADERS})
+SOURCE_GROUP(tld/Source FILES ${tld_SOURCES} ${tld_HEADERS})
+
+add_library(OpenTLD ${cvblobs_SOURCES}
+    ${cvblobs_HEADERS}
+	${mftracker_SOURCES}
+	${mftracker_HEADERS}
+	${tld_SOURCES}
+	${tld_HEADERS})
 
 configure_file("${PROJECT_SOURCE_DIR}/OpenTLDConfig.cmake.in" "${PROJECT_BINARY_DIR}/OpenTLDConfig.cmake" @ONLY)
 
