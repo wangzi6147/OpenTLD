@@ -51,6 +51,7 @@ TLD::TLD() {
 
 TLD::~TLD() {
 	storeCurrentData();
+	release();
 
 	delete detectorCascade;
 	delete medianFlowTracker;
