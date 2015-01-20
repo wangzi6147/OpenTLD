@@ -93,6 +93,7 @@ datasets/
 *.suo
 src/win32/
 lib/Debug/
+lib/Release/
 *.filters
 src/CMakeCache.txt
 src/CMakeFiles/

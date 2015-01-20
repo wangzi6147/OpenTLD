@@ -5,6 +5,9 @@
 #include <TLD.h>
 #include <stdio.h>
 #include <videoInput.h>
+
+#pragma comment(linker, "/NODEFAULTLIB:atlthunk.lib")
+
 using namespace cv;
 using namespace std;
 //Global variables

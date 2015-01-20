@@ -37,12 +37,6 @@ Thanks to:
 */
 /////////////////////////////////////////////////////////
 
-//this is for TryEnterCriticalSection
-#ifndef _WIN32_WINNT
-	#   define _WIN32_WINNT 0x400
-#endif
-#include <windows.h>
-
 
 
 #include <stdlib.h>
@@ -51,6 +45,11 @@ Thanks to:
 #include <string.h>
 #include <wchar.h>
 
+//this is for TryEnterCriticalSection
+#ifndef _WIN32_WINNT
+	#   define _WIN32_WINNT 0x400
+#endif
+#include <windows.h>
 
 
 //Example Usage
