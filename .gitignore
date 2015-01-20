@@ -88,3 +88,12 @@ Icon?
 Thumbs.db
 
 datasets/
+*.user
+*.dir/
+*.suo
+src/win32/
+lib/Debug/
+*.filters
+src/CMakeCache.txt
+src/CMakeFiles/
+src/cmake_install.cmake

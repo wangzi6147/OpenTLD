@@ -112,7 +112,7 @@ int main(int argc, char * argv[]){
   //Prints out a list of available devices and returns num of devices found
   int numDevices = VI.listDevices();	
 
-  int device = 1;  //this could be any deviceID that shows up in listDevices
+  int device = 0;  //this could be any deviceID that shows up in listDevices
 
   VideoCapture capture;
   FileStorage fs;

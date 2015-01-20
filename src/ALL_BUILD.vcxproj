@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="us-ascii"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,9 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{E3754C9B-06AB-4FAD-9331-90F6F35E8B5E}</ProjectGUID>
-    <SccProjectName />
-    <SccLocalPath />
+    <ProjectGUID>{EFE32C91-A72E-4568-8E68-0886127ABE96}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
@@ -30,38 +29,43 @@
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />  </ImportGroup>
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:/OpenCV2.2/include;C:/OpenCV2.2/include/opencv;C:/OpenCV2.2/3rdparty/include;C:/OpenCV2.2/modules/core/include;C:/OpenCV2.2/modules/imgproc/include;C:/OpenCV2.2/modules/features2d/include;C:/OpenCV2.2/modules/gpu/include;C:/OpenCV2.2/modules/calib3d/include;C:/OpenCV2.2/modules/objdetect/include;C:/OpenCV2.2/modules/video/include;C:/OpenCV2.2/modules/highgui/include;C:/OpenCV2.2/modules/ml/include;C:/OpenCV2.2/modules/legacy/include;C:/OpenCV2.2/modules/contrib/include;C:/OpenCV2.2/modules/flann/include;C:/Users/Dev/OpenTLD C++/src/../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\opencv\rebuildForX86;E:\opencv_2.4.8\opencv\sources\include;E:\opencv_2.4.8\opencv\sources\include\opencv;E:\opencv_2.4.8\opencv\sources\modules\core\include;E:\opencv_2.4.8\opencv\sources\modules\flann\include;E:\opencv_2.4.8\opencv\sources\modules\imgproc\include;E:\opencv_2.4.8\opencv\sources\modules\highgui\include;E:\opencv_2.4.8\opencv\sources\modules\features2d\include;E:\opencv_2.4.8\opencv\sources\modules\calib3d\include;E:\opencv_2.4.8\opencv\sources\modules\ml\include;E:\opencv_2.4.8\opencv\sources\modules\video\include;E:\opencv_2.4.8\opencv\sources\modules\legacy\include;E:\opencv_2.4.8\opencv\sources\modules\objdetect\include;E:\opencv_2.4.8\opencv\sources\modules\photo\include;E:\opencv_2.4.8\opencv\sources\modules\gpu\include;E:\opencv_2.4.8\opencv\sources\modules\ocl\include;E:\opencv_2.4.8\opencv\sources\modules\nonfree\include;E:\opencv_2.4.8\opencv\sources\modules\contrib\include;E:\opencv_2.4.8\opencv\sources\modules\stitching\include;E:\opencv_2.4.8\opencv\sources\modules\superres\include;E:\opencv_2.4.8\opencv\sources\modules\ts\include;E:\opencv_2.4.8\opencv\sources\modules\videostab\include;F:\git\OpenTLD\src\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -71,7 +75,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:/OpenCV2.2/include;C:/OpenCV2.2/include/opencv;C:/OpenCV2.2/3rdparty/include;C:/OpenCV2.2/modules/core/include;C:/OpenCV2.2/modules/imgproc/include;C:/OpenCV2.2/modules/features2d/include;C:/OpenCV2.2/modules/gpu/include;C:/OpenCV2.2/modules/calib3d/include;C:/OpenCV2.2/modules/objdetect/include;C:/OpenCV2.2/modules/video/include;C:/OpenCV2.2/modules/highgui/include;C:/OpenCV2.2/modules/ml/include;C:/OpenCV2.2/modules/legacy/include;C:/OpenCV2.2/modules/contrib/include;C:/OpenCV2.2/modules/flann/include;C:/Users/Dev/OpenTLD C++/src/../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\opencv\rebuildForX86;E:\opencv_2.4.8\opencv\sources\include;E:\opencv_2.4.8\opencv\sources\include\opencv;E:\opencv_2.4.8\opencv\sources\modules\core\include;E:\opencv_2.4.8\opencv\sources\modules\flann\include;E:\opencv_2.4.8\opencv\sources\modules\imgproc\include;E:\opencv_2.4.8\opencv\sources\modules\highgui\include;E:\opencv_2.4.8\opencv\sources\modules\features2d\include;E:\opencv_2.4.8\opencv\sources\modules\calib3d\include;E:\opencv_2.4.8\opencv\sources\modules\ml\include;E:\opencv_2.4.8\opencv\sources\modules\video\include;E:\opencv_2.4.8\opencv\sources\modules\legacy\include;E:\opencv_2.4.8\opencv\sources\modules\objdetect\include;E:\opencv_2.4.8\opencv\sources\modules\photo\include;E:\opencv_2.4.8\opencv\sources\modules\gpu\include;E:\opencv_2.4.8\opencv\sources\modules\ocl\include;E:\opencv_2.4.8\opencv\sources\modules\nonfree\include;E:\opencv_2.4.8\opencv\sources\modules\contrib\include;E:\opencv_2.4.8\opencv\sources\modules\stitching\include;E:\opencv_2.4.8\opencv\sources\modules\superres\include;E:\opencv_2.4.8\opencv\sources\modules\ts\include;E:\opencv_2.4.8\opencv\sources\modules\videostab\include;F:\git\OpenTLD\src\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -81,7 +85,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:/OpenCV2.2/include;C:/OpenCV2.2/include/opencv;C:/OpenCV2.2/3rdparty/include;C:/OpenCV2.2/modules/core/include;C:/OpenCV2.2/modules/imgproc/include;C:/OpenCV2.2/modules/features2d/include;C:/OpenCV2.2/modules/gpu/include;C:/OpenCV2.2/modules/calib3d/include;C:/OpenCV2.2/modules/objdetect/include;C:/OpenCV2.2/modules/video/include;C:/OpenCV2.2/modules/highgui/include;C:/OpenCV2.2/modules/ml/include;C:/OpenCV2.2/modules/legacy/include;C:/OpenCV2.2/modules/contrib/include;C:/OpenCV2.2/modules/flann/include;C:/Users/Dev/OpenTLD C++/src/../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\opencv\rebuildForX86;E:\opencv_2.4.8\opencv\sources\include;E:\opencv_2.4.8\opencv\sources\include\opencv;E:\opencv_2.4.8\opencv\sources\modules\core\include;E:\opencv_2.4.8\opencv\sources\modules\flann\include;E:\opencv_2.4.8\opencv\sources\modules\imgproc\include;E:\opencv_2.4.8\opencv\sources\modules\highgui\include;E:\opencv_2.4.8\opencv\sources\modules\features2d\include;E:\opencv_2.4.8\opencv\sources\modules\calib3d\include;E:\opencv_2.4.8\opencv\sources\modules\ml\include;E:\opencv_2.4.8\opencv\sources\modules\video\include;E:\opencv_2.4.8\opencv\sources\modules\legacy\include;E:\opencv_2.4.8\opencv\sources\modules\objdetect\include;E:\opencv_2.4.8\opencv\sources\modules\photo\include;E:\opencv_2.4.8\opencv\sources\modules\gpu\include;E:\opencv_2.4.8\opencv\sources\modules\ocl\include;E:\opencv_2.4.8\opencv\sources\modules\nonfree\include;E:\opencv_2.4.8\opencv\sources\modules\contrib\include;E:\opencv_2.4.8\opencv\sources\modules\stitching\include;E:\opencv_2.4.8\opencv\sources\modules\superres\include;E:\opencv_2.4.8\opencv\sources\modules\ts\include;E:\opencv_2.4.8\opencv\sources\modules\videostab\include;F:\git\OpenTLD\src\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -91,7 +95,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:/OpenCV2.2/include;C:/OpenCV2.2/include/opencv;C:/OpenCV2.2/3rdparty/include;C:/OpenCV2.2/modules/core/include;C:/OpenCV2.2/modules/imgproc/include;C:/OpenCV2.2/modules/features2d/include;C:/OpenCV2.2/modules/gpu/include;C:/OpenCV2.2/modules/calib3d/include;C:/OpenCV2.2/modules/objdetect/include;C:/OpenCV2.2/modules/video/include;C:/OpenCV2.2/modules/highgui/include;C:/OpenCV2.2/modules/ml/include;C:/OpenCV2.2/modules/legacy/include;C:/OpenCV2.2/modules/contrib/include;C:/OpenCV2.2/modules/flann/include;C:/Users/Dev/OpenTLD C++/src/../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\opencv\rebuildForX86;E:\opencv_2.4.8\opencv\sources\include;E:\opencv_2.4.8\opencv\sources\include\opencv;E:\opencv_2.4.8\opencv\sources\modules\core\include;E:\opencv_2.4.8\opencv\sources\modules\flann\include;E:\opencv_2.4.8\opencv\sources\modules\imgproc\include;E:\opencv_2.4.8\opencv\sources\modules\highgui\include;E:\opencv_2.4.8\opencv\sources\modules\features2d\include;E:\opencv_2.4.8\opencv\sources\modules\calib3d\include;E:\opencv_2.4.8\opencv\sources\modules\ml\include;E:\opencv_2.4.8\opencv\sources\modules\video\include;E:\opencv_2.4.8\opencv\sources\modules\legacy\include;E:\opencv_2.4.8\opencv\sources\modules\objdetect\include;E:\opencv_2.4.8\opencv\sources\modules\photo\include;E:\opencv_2.4.8\opencv\sources\modules\gpu\include;E:\opencv_2.4.8\opencv\sources\modules\ocl\include;E:\opencv_2.4.8\opencv\sources\modules\nonfree\include;E:\opencv_2.4.8\opencv\sources\modules\contrib\include;E:\opencv_2.4.8\opencv\sources\modules\stitching\include;E:\opencv_2.4.8\opencv\sources\modules\superres\include;E:\opencv_2.4.8\opencv\sources\modules\ts\include;E:\opencv_2.4.8\opencv\sources\modules\videostab\include;F:\git\OpenTLD\src\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -100,70 +104,130 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="CMakeFiles\ALL_BUILD.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Build all projects</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Dev/OpenTLD C++/src/CMakeFiles/ALL_BUILD.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Dev\OpenTLD C++\src\CMakeFiles\ALL_BUILD;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Build all projects</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Dev/OpenTLD C++/src/CMakeFiles/ALL_BUILD.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Dev\OpenTLD C++\src\CMakeFiles\ALL_BUILD;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Build all projects</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'"></Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Dev/OpenTLD C++/src/CMakeFiles/ALL_BUILD.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Dev\OpenTLD C++\src\CMakeFiles\ALL_BUILD;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Build all projects</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'"></Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Dev/OpenTLD C++/src/CMakeFiles/ALL_BUILD.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Dev\OpenTLD C++\src\CMakeFiles\ALL_BUILD;%(Outputs)</Outputs>
+    <CustomBuild Include="CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule F:/git/OpenTLD/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+E:\cmake-3.0.2-win32-x86\bin\cmake.exe -HF:/git/OpenTLD/src -BF:/git/OpenTLD/src --check-stamp-file F:\git\OpenTLD\src\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:/git/OpenTLD/src/CMakeLists.txt;F:\git\OpenTLD\src\CMakeLists.txt;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeSystem.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerId.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CompilerId\VS-10.vcxproj.in;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeFindBinUtils.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeClDeps.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-CXX.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerId.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CompilerId\VS-10.vcxproj.in;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeFindBinUtils.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeClDeps.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeSystemSpecificInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeGenericSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\WindowsPaths.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC-C.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeRCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeRCInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCommonLanguageInclude.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCompilerCommon.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerABI.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeParseImplicitLinkInfo.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompilerABI.c;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC-CXX.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCommonLanguageInclude.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCompilerCommon.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerABI.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeParseImplicitLinkInfo.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompilerABI.cpp;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCXXCompiler.cmake;E:\opencv\rebuildForX86\OpenCVConfig-version.cmake;E:\opencv\rebuildForX86\OpenCVConfig.cmake;E:\opencv\rebuildForX86\OpenCVModules.cmake;F:\git\OpenTLD\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\git\OpenTLD\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule F:/git/OpenTLD/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+E:\cmake-3.0.2-win32-x86\bin\cmake.exe -HF:/git/OpenTLD/src -BF:/git/OpenTLD/src --check-stamp-file F:\git\OpenTLD\src\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:/git/OpenTLD/src/CMakeLists.txt;F:\git\OpenTLD\src\CMakeLists.txt;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeSystem.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerId.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CompilerId\VS-10.vcxproj.in;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeFindBinUtils.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeClDeps.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-CXX.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerId.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CompilerId\VS-10.vcxproj.in;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeFindBinUtils.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeClDeps.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeSystemSpecificInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeGenericSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\WindowsPaths.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC-C.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeRCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeRCInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCommonLanguageInclude.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCompilerCommon.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerABI.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeParseImplicitLinkInfo.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompilerABI.c;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC-CXX.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCommonLanguageInclude.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCompilerCommon.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerABI.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeParseImplicitLinkInfo.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompilerABI.cpp;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCXXCompiler.cmake;E:\opencv\rebuildForX86\OpenCVConfig-version.cmake;E:\opencv\rebuildForX86\OpenCVConfig.cmake;E:\opencv\rebuildForX86\OpenCVModules.cmake;F:\git\OpenTLD\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\git\OpenTLD\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule F:/git/OpenTLD/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+E:\cmake-3.0.2-win32-x86\bin\cmake.exe -HF:/git/OpenTLD/src -BF:/git/OpenTLD/src --check-stamp-file F:\git\OpenTLD\src\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">F:/git/OpenTLD/src/CMakeLists.txt;F:\git\OpenTLD\src\CMakeLists.txt;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeSystem.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerId.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CompilerId\VS-10.vcxproj.in;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeFindBinUtils.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeClDeps.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-CXX.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerId.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CompilerId\VS-10.vcxproj.in;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeFindBinUtils.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeClDeps.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeSystemSpecificInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeGenericSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\WindowsPaths.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC-C.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeRCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeRCInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCommonLanguageInclude.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCompilerCommon.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerABI.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeParseImplicitLinkInfo.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompilerABI.c;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC-CXX.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCommonLanguageInclude.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCompilerCommon.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerABI.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeParseImplicitLinkInfo.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompilerABI.cpp;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCXXCompiler.cmake;E:\opencv\rebuildForX86\OpenCVConfig-version.cmake;E:\opencv\rebuildForX86\OpenCVConfig.cmake;E:\opencv\rebuildForX86\OpenCVModules.cmake;F:\git\OpenTLD\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">F:\git\OpenTLD\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule F:/git/OpenTLD/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+E:\cmake-3.0.2-win32-x86\bin\cmake.exe -HF:/git/OpenTLD/src -BF:/git/OpenTLD/src --check-stamp-file F:\git\OpenTLD\src\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">F:/git/OpenTLD/src/CMakeLists.txt;F:\git\OpenTLD\src\CMakeLists.txt;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeSystem.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerId.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CompilerId\VS-10.vcxproj.in;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeFindBinUtils.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeClDeps.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-CXX.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerId.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CompilerId\VS-10.vcxproj.in;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeFindBinUtils.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeClDeps.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeSystemSpecificInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeGenericSystem.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\WindowsPaths.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC-C.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeRCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeRCInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestRCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCommonLanguageInclude.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCompilerCommon.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerABI.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeParseImplicitLinkInfo.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompilerABI.c;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXInformation.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC-CXX.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\Platform\Windows-MSVC.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCommonLanguageInclude.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCXXCompiler.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeTestCompilerCommon.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeDetermineCompilerABI.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeParseImplicitLinkInfo.cmake;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompilerABI.cpp;E:\cmake-3.0.2-win32-x86\share\cmake-3.0\Modules\CMakeCXXCompiler.cmake.in;F:\git\OpenTLD\src\CMakeFiles\3.0.2\CMakeCXXCompiler.cmake;E:\opencv\rebuildForX86\OpenCVConfig-version.cmake;E:\opencv\rebuildForX86\OpenCVConfig.cmake;E:\opencv\rebuildForX86\OpenCVModules.cmake;F:\git\OpenTLD\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">F:\git\OpenTLD\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Dev/OpenTLD C++/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" "-HC:/Users/Dev/OpenTLD C++/src" "-BC:/Users/Dev/OpenTLD C++/src" --check-stamp-file "C:\Users\Dev\OpenTLD C++\src\CMakeFiles\generate.stamp"
-if errorlevel 1 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Dev/OpenTLD C++/src/CMakeLists.txt;C:\Users\Dev\OpenTLD C++\src\CMakeLists.txt;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeSystem.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXPlatform.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXPlatform.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\OpenCV2.2\OpenCVConfig.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Dev\OpenTLD C++\src\CMakeFiles\generate.stamp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Dev/OpenTLD C++/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" "-HC:/Users/Dev/OpenTLD C++/src" "-BC:/Users/Dev/OpenTLD C++/src" --check-stamp-file "C:\Users\Dev\OpenTLD C++\src\CMakeFiles\generate.stamp"
-if errorlevel 1 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Dev/OpenTLD C++/src/CMakeLists.txt;C:\Users\Dev\OpenTLD C++\src\CMakeLists.txt;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeSystem.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXPlatform.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXPlatform.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\OpenCV2.2\OpenCVConfig.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Dev\OpenTLD C++\src\CMakeFiles\generate.stamp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Dev/OpenTLD C++/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" "-HC:/Users/Dev/OpenTLD C++/src" "-BC:/Users/Dev/OpenTLD C++/src" --check-stamp-file "C:\Users\Dev\OpenTLD C++\src\CMakeFiles\generate.stamp"
-if errorlevel 1 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Dev/OpenTLD C++/src/CMakeLists.txt;C:\Users\Dev\OpenTLD C++\src\CMakeLists.txt;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeSystem.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXPlatform.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXPlatform.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\OpenCV2.2\OpenCVConfig.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Dev\OpenTLD C++\src\CMakeFiles\generate.stamp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Dev/OpenTLD C++/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" "-HC:/Users/Dev/OpenTLD C++/src" "-BC:/Users/Dev/OpenTLD C++/src" --check-stamp-file "C:\Users\Dev\OpenTLD C++\src\CMakeFiles\generate.stamp"
-if errorlevel 1 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Dev/OpenTLD C++/src/CMakeLists.txt;C:\Users\Dev\OpenTLD C++\src\CMakeLists.txt;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeSystem.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXPlatform.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeFiles\CMakeCXXPlatform.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\OpenCV2.2\OpenCVConfig.cmake;C:\Users\Dev\OpenTLD C++\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Dev\OpenTLD C++\src\CMakeFiles\generate.stamp;%(Outputs)</Outputs>
+    <CustomBuild Include="CMakeFiles\5ede9316458fb3361b33b17883ab8980\ALL_BUILD.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Build all projects</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:/git/OpenTLD/src/CMakeFiles/5ede9316458fb3361b33b17883ab8980/ALL_BUILD.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\git\OpenTLD\src\CMakeFiles\ALL_BUILD</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Build all projects</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:/git/OpenTLD/src/CMakeFiles/5ede9316458fb3361b33b17883ab8980/ALL_BUILD.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\git\OpenTLD\src\CMakeFiles\ALL_BUILD</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Build all projects</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">F:/git/OpenTLD/src/CMakeFiles/5ede9316458fb3361b33b17883ab8980/ALL_BUILD.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">F:\git\OpenTLD\src\CMakeFiles\ALL_BUILD</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Build all projects</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">F:/git/OpenTLD/src/CMakeFiles/5ede9316458fb3361b33b17883ab8980/ALL_BUILD.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">F:\git\OpenTLD\src\CMakeFiles\ALL_BUILD</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <None Include="CMakeFiles\ALL_BUILD" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:/Users/Dev/OpenTLD C++/src/LKTracker.vcxproj">
-      <Project>754F70EE-BD4C-47CF-9635-44D1849CE5A2</Project>
+    <ProjectReference Include="F:/git/OpenTLD/src/LKTracker.vcxproj">
+      <Project>C78D5128-6510-414B-A526-748540FAD3F6</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/Dev/OpenTLD C++/src/ZERO_CHECK.vcxproj">
-      <Project>79CEC825-14F0-4DAC-8C38-6735A4BC92C9</Project>
+    <ProjectReference Include="F:/git/OpenTLD/src/ZERO_CHECK.vcxproj">
+      <Project>11CAC2FF-96FE-4B79-B044-2E7429415891</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/Dev/OpenTLD C++/src/ferNN.vcxproj">
-      <Project>91EC9DE9-27C3-4BCC-841E-5CACBB763A6F</Project>
+    <ProjectReference Include="F:/git/OpenTLD/src/ferNN.vcxproj">
+      <Project>5182AED2-5B21-4095-9A13-8B0C51D16171</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/Dev/OpenTLD C++/src/run_tld.vcxproj">
-      <Project>E9D440AB-BDBD-4A6A-9A1B-4FC22A1077A6</Project>
+    <ProjectReference Include="F:/git/OpenTLD/src/run_tld.vcxproj">
+      <Project>4F359270-119A-4926-9B0B-10996700A888</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/Dev/OpenTLD C++/src/tld.vcxproj">
-      <Project>76CE908A-D223-4BC6-AEBA-1BB82B5B5ED9</Project>
+    <ProjectReference Include="F:/git/OpenTLD/src/tld.vcxproj">
+      <Project>937CE29E-6208-4847-B9E3-BF60BDA70EE7</Project>
     </ProjectReference>
-    <ProjectReference Include="C:/Users/Dev/OpenTLD C++/src/tld_utils.vcxproj">
-      <Project>E54C8B7A-607E-46BA-B84E-46DE6042913C</Project>
+    <ProjectReference Include="F:/git/OpenTLD/src/tld_utils.vcxproj">
+      <Project>97249C1E-C447-4AAF-9D72-55EE5C87592D</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
