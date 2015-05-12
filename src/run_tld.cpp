@@ -221,9 +221,14 @@ REPEAT:
     pts1.clear();
     pts2.clear();
     frames++;
-    printf("Detection rate: %d/%d\n",detections,frames);
-    if (cvWaitKey(33) == 'q')
-      break;
+	printf("Detection rate: %d/%d\n", detections, frames);
+	int key = cvWaitKey(33);
+	if (key == 'q')
+		return 0;
+	else if (key == ' '){
+		while (cvWaitKey(-1) != ' ')
+			continue;
+	}
   }
   if (rep){
     rep = false;
