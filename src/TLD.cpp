@@ -427,7 +427,7 @@ void TLD::detect(const cv::Mat& frame){
   int a=0;
   Mat patch;
   for (int i=0;i<grid.size();i++){//FIXME: BottleNeck
-      if (getVar(grid[i],iisum,iisqsum)>=var){
+	  if (getVar(grid[i], iisum, iisqsum) >= var){
           a++;
 		  patch = img(grid[i]);
           classifier.getFeatures(patch,grid[i].sidx,ferns);
@@ -435,7 +435,7 @@ void TLD::detect(const cv::Mat& frame){
           tmp.conf[i]=conf;
           tmp.patt[i]=ferns;
           if (conf>numtrees*fern_th){
-              dt.bb.push_back(i);
+			  dt.bb.push_back(i);
           }
       }
       else
@@ -530,7 +530,7 @@ void TLD::learn(const Mat& img){
   vector<pair<vector<int>,int> > fern_examples;
   good_boxes.clear();
   bad_boxes.clear();
-  getOverlappingBoxes(lastbox,num_closest_update);
+  getOverlappingBoxes(lastbox, num_closest_update);
   if (good_boxes.size()>0)
     generatePositiveData(img,num_warps_update);
   else{
@@ -611,6 +611,10 @@ float TLD::bbOverlap(const BoundingBox& box1,const BoundingBox& box2){
   return intersection / (area1 + area2 - intersection);
 }
 
+bool cmp(const pair<int, BoundingBox> p1, const pair<int, BoundingBox> p2){
+	return p1.second.overlap > p2.second.overlap;
+}
+
 void TLD::getOverlappingBoxes(const cv::Rect& box1,int num_closest){
   float max_overlap = 0;
   for (int i=0;i<grid.size();i++){
@@ -627,11 +631,20 @@ void TLD::getOverlappingBoxes(const cv::Rect& box1,int num_closest){
   }
   //Get the best num_closest (10) boxes and puts them in good_boxes
   if (good_boxes.size()>num_closest){
-    std::nth_element(good_boxes.begin(),good_boxes.begin()+num_closest,good_boxes.end(),OComparator(grid));
+	  vector<pair<int, BoundingBox>> tmp;
+	  for (int b : good_boxes){
+		  tmp.push_back(pair<int, BoundingBox>(b, grid[b]));
+	  }
+	  std::nth_element(tmp.begin(), tmp.begin() + num_closest, tmp.end(), cmp);
+	  for (int i = 0; i < num_closest; i++){
+		  good_boxes[i] = tmp[i].first;
+	  }
+	//std::nth_element(good_boxes.begin(), good_boxes.begin() + num_closest, good_boxes.end(), OComparator(grid));
     good_boxes.resize(num_closest);
   }
   getBBHull();
 }
+
 
 void TLD::getBBHull(){
   int x1=INT_MAX, x2=0;

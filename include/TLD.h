@@ -138,6 +138,5 @@ public:
       const BoundingBox& bb1,BoundingBox& bb2);
   double getVar(const BoundingBox& box,const cv::Mat& sum,const cv::Mat& sqsum);
   bool bbComp(const BoundingBox& bb1,const BoundingBox& bb2);
-  int clusterBB(const std::vector<BoundingBox>& dbb,std::vector<int>& indexes);
+  int clusterBB(const std::vector<BoundingBox>& dbb, std::vector<int>& indexes);
 };
-
