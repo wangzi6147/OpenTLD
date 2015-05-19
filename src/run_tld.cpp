@@ -152,10 +152,12 @@ int main(int argc, char * argv[]){
   Mat frame;
   Mat last_gray;
   Mat first;
+  Size size;
   if (fromfile){
       capture >> frame;
       cvtColor(frame, last_gray, CV_RGB2GRAY);
       frame.copyTo(first);
+	  size = Size(frame.cols*(float)fs.getFirstTopLevelNode()["resize_width"] , frame.rows*(float)fs.getFirstTopLevelNode()["resize_height"]);
   }
   else {
 	  while(!VI.isFrameNew(device));
@@ -164,10 +166,18 @@ int main(int argc, char * argv[]){
   }
 
   ///Initialization
+  while (fromfile&&capture.read(first)){
+	  resize(first, first, size);
+	  imshow("TLD", first);
+	  if (cvWaitKey(33) == ' '){
+		  break;
+	  }
+  }
 GETBOUNDINGBOX:
   while(!gotBB)
   {
-    first.copyTo(frame);
+	  first.copyTo(frame);
+	  resize(frame, frame, size);
     cvtColor(frame, last_gray, CV_RGB2GRAY);
     drawBox(frame,box);
     imshow("TLD", frame);
@@ -204,6 +214,7 @@ REPEAT:
 	}
 		
     //get frame
+	resize(frame, frame, size);
     cvtColor(frame, current_gray, CV_RGB2GRAY);
     //Process Frame
     tld.processFrame(last_gray,current_gray,pts1,pts2,pbox,status,tl,bb_file);

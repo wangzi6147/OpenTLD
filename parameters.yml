@@ -27,4 +27,5 @@ Parameters:
    bb_y: 36
    bb_w: 25
    bb_h: 42   
-
+   resize_width: 0.3
+   resize_height: 0.3
