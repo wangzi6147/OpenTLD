@@ -100,3 +100,4 @@ src/CMakeFiles/
 src/cmake_install.cmake
 *.sdf
 *.opensdf
+*.pdb

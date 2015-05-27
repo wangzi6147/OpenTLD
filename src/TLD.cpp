@@ -7,6 +7,7 @@
 
 #include <TLD.h>
 #include <stdio.h>
+#include "kernel.h"
 using namespace cv;
 using namespace std;
 
@@ -426,6 +427,9 @@ void TLD::detect(const cv::Mat& frame){
   float conf;
   int a=0;
   Mat patch;
+
+  //processWithCuda(this);
+
   for (int i=0;i<grid.size();i++){//FIXME: BottleNeck
 	  if (getVar(grid[i], iisum, iisqsum) >= var){
           a++;

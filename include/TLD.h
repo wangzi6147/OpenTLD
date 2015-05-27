@@ -1,3 +1,5 @@
+#pragma once
+
 #include <opencv2/opencv.hpp>
 #include <tld_utils.h>
 #include <LKTracker.h>
@@ -104,7 +106,6 @@ private:
 
 
   //Bounding Boxes
-  std::vector<BoundingBox> grid;
   std::vector<cv::Size> scales;
   std::vector<int> good_boxes; //indexes of bboxes with overlap > 0.6
   std::vector<int> bad_boxes; //indexes of bboxes with overlap < 0.2
@@ -112,6 +113,10 @@ private:
   BoundingBox best_box; // maximum overlapping bbox
 
 public:
+
+	//Bounding Boxes
+	std::vector<BoundingBox> grid;
+
   //Constructors
   TLD();
   TLD(const cv::FileNode& file);
