@@ -221,7 +221,7 @@ double TLD::getVar(const BoundingBox& box,const Mat& sum,const Mat& sqsum){
   double trsq = sqsum.at<double>(box.y,box.x+box.width);
   double tlsq = sqsum.at<double>(box.y,box.x);
   double mean = (brs+tls-trs-bls)/((double)box.area());
-  double sqmean = (brsq+tlsq-trsq-blsq)/((double)box.area());
+  double sqmean = (brsq + tlsq - trsq - blsq) / ((double)box.area());
   return sqmean-mean*mean;
 }
 
@@ -428,25 +428,26 @@ void TLD::detect(const cv::Mat& frame){
   int a=0;
   Mat patch;
 
-  //processWithCuda(this);
+  //CUDA
+  processWithCuda(this, img, classifier);
 
-  for (int i=0;i<grid.size();i++){//FIXME: BottleNeck
-	  if (getVar(grid[i], iisum, iisqsum) >= var){
-          a++;
-		  patch = img(grid[i]);
-          classifier.getFeatures(patch,grid[i].sidx,ferns);
-          conf = classifier.measure_forest(ferns);
-          tmp.conf[i]=conf;
-          tmp.patt[i]=ferns;
-          if (conf>numtrees*fern_th){
-			  dt.bb.push_back(i);
-          }
-      }
-      else
-        tmp.conf[i]=0.0;
-  }
+  //for (int i=0;i<grid.size();i++){//FIXME: BottleNeck
+	 // if (getVar(grid[i], iisum, iisqsum) >= var){
+  //        a++;
+		//  patch = img(grid[i]);
+  //        classifier.getFeatures(patch,grid[i].sidx,ferns);
+		//  conf = classifier.measure_forest(ferns);
+		//  tmp.conf[i] = conf;
+		//  tmp.patt[i] = ferns;
+		//  if (conf>numtrees*fern_th){
+		//	  dt.bb.push_back(i);
+		//  }
+  //    }
+	 // else
+		//  tmp.conf[i] = 0.0;
+  //}
   int detections = dt.bb.size();
-  printf("%d Bounding boxes passed the variance filter\n",a);
+  //printf("%d Bounding boxes passed the variance filter\n",a);
   printf("%d Initial detection from Fern Classifier\n",detections);
   if (detections>100){
       nth_element(dt.bb.begin(),dt.bb.begin()+100,dt.bb.end(),CComparator(tmp.conf));

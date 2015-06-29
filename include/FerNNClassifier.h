@@ -9,14 +9,16 @@
 #include <stdio.h>
 class FerNNClassifier{
 private:
-  float thr_fern;
-  int structSize;
-  int nstructs;
   float valid;
   float ncc_thesame;
   float thr_nn;
   int acum;
 public:
+
+	float thr_fern;
+	int nstructs;
+	int structSize;
+
   //Parameters
   float thr_nn_valid;
 

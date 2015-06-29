@@ -6,6 +6,7 @@
 #include <FerNNClassifier.h>
 #include <fstream>
 #include <opencv2/legacy/legacy.hpp>
+#include <opencv2/gpu/gpu.hpp>    
 
 //Bounding Boxes
 struct BoundingBox : public cv::Rect {
@@ -74,10 +75,6 @@ private:
   float bad_overlap;
   float bad_patches;
   ///Variables
-//Integral Images
-  cv::Mat iisum;
-  cv::Mat iisqsum;
-  float var;
 //Training data
   std::vector<std::pair<std::vector<int>,int> > pX; //positive ferns <features,labels=1>
   std::vector<std::pair<std::vector<int>,int> > nX; // negative ferns <features,labels=0>
@@ -96,9 +93,6 @@ private:
   BoundingBox tbb;
   bool tvalid;
   float tconf;
-  //Detector data
-  TempStruct tmp;
-  DetStruct dt;
   std::vector<BoundingBox> dbb;
   std::vector<bool> dvalid;
   std::vector<float> dconf;
@@ -116,6 +110,13 @@ public:
 
 	//Bounding Boxes
 	std::vector<BoundingBox> grid;
+	//Integral Images
+	cv::Mat iisum;
+	cv::Mat iisqsum;
+	float var;
+	//Detector data
+	TempStruct tmp;
+	DetStruct dt;
 
   //Constructors
   TLD();
