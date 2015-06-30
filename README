@@ -2,3 +2,5 @@ This is an adaptation of jmfs's fork of OpenTLD (https://github.com/jmfs/OpenTLD
 to be immeadiately runnable in Visual Studio 2013.
 
 The detection module has been improved with CUDA.
+
+More description: http://wangzi6147.github.io/2015/06/30/TLD-7.html
