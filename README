@@ -1,7 +1,4 @@
-This is an adaptation of arthurv's fork of OpenTLD (https://github.com/arthurv/OpenTLD) 
-to be immeadiately runnable in Visual Studio 2010.
+This is an adaptation of jmfs's fork of OpenTLD (https://github.com/jmfs/OpenTLD)
+to be immeadiately runnable in Visual Studio 2013.
 
-As a way of testing it, I will be capturing video through videoInput, since my webcam 
-isn't detected by OpenCV's capture library.
-
-
+The detection module has been improved with CUDA.
