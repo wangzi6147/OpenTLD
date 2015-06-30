@@ -48,7 +48,7 @@ __global__ void kernel(float* posteriors, feature* featureData, proData * dt, bo
 			for (int t = 0; t<(*dt).nstructs; t++){
 				leaf = 0;
 				for (int f = 0; f<(*dt).structSize; f++){
-					featureTmp = featureData[bbdata[i].sidx*(*dt).featureSizeSize + t*(*dt).nstructs + f];
+					featureTmp = featureData[bbdata[i].sidx*(*dt).featureSizeSize + t*(*dt).structSize + f];
 					leaf = (leaf << 1) + (img(bbdata[i].y + featureTmp.y1, bbdata[i].x + featureTmp.x1).x > img(bbdata[i].y+featureTmp.y2, bbdata[i].x+featureTmp.x2).x);
 				}
 				fern[t] = leaf;
@@ -80,8 +80,6 @@ void safeCall(cudaError e){
 
 void processWithCuda(TLD *tld, const Mat &img, const FerNNClassifier &classifier){
 	GpuMat gpuiisum, gpuiisqsum, gpuimg;
-	int iirows = tld->iisum.rows;
-	int iicols = tld->iisqsum.cols;
 	gpuiisum.upload(tld->iisum);
 	gpuiisum.convertTo(gpuiisum, CV_32F);
 	gpuiisqsum.upload(tld->iisqsum);
@@ -138,7 +136,7 @@ void processWithCuda(TLD *tld, const Mat &img, const FerNNClassifier &classifier
 	result *dev_result = NULL;
 	result *res = new result[dt.size];
 	safeCall(cudaMalloc((void**)&dev_result, dt.size*sizeof(result)));
-	kernel << <256, 512 >> >(dev_posteriors, dev_featureData, dev_dt, dev_bbdata, gpuimg, gpuiisum, gpuiisqsum, dev_result);
+	kernel << <1024, 1024 >> >(dev_posteriors, dev_featureData, dev_dt, dev_bbdata, gpuimg, gpuiisum, gpuiisqsum, dev_result);
 	safeCall(cudaMemcpy(res, dev_result, dt.size * sizeof(result), cudaMemcpyDeviceToHost));
 
 	int output = 0;

@@ -59,7 +59,7 @@ void FerNNClassifier::getFeatures(const cv::Mat& image,const int& scale_idx, vec
   for (int t=0;t<nstructs;t++){
       leaf=0;
       for (int f=0; f<structSize; f++){
-          leaf = (leaf << 1) + features[scale_idx][t*nstructs+f](image);
+		  leaf = (leaf << 1) + features[scale_idx][t*structSize + f](image);
       }
       fern[t]=leaf;
   }

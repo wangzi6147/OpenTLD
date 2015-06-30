@@ -636,14 +636,14 @@ void TLD::getOverlappingBoxes(const cv::Rect& box1,int num_closest){
   }
   //Get the best num_closest (10) boxes and puts them in good_boxes
   if (good_boxes.size()>num_closest){
-	  vector<pair<int, BoundingBox>> tmp;
-	  for (int b : good_boxes){
-		  tmp.push_back(pair<int, BoundingBox>(b, grid[b]));
-	  }
-	  std::nth_element(tmp.begin(), tmp.begin() + num_closest, tmp.end(), cmp);
-	  for (int i = 0; i < num_closest; i++){
-		  good_boxes[i] = tmp[i].first;
-	  }
+	   vector<pair<int, BoundingBox>> tmp;
+	   for (int b : good_boxes){
+	   tmp.push_back(pair<int, BoundingBox>(b, grid[b]));
+	   }
+	   std::nth_element(tmp.begin(), tmp.begin() + num_closest, tmp.end(), cmp);
+	   for (int i = 0; i < num_closest; i++){
+	   good_boxes[i] = tmp[i].first;
+	   }
 	//std::nth_element(good_boxes.begin(), good_boxes.begin() + num_closest, good_boxes.end(), OComparator(grid));
     good_boxes.resize(num_closest);
   }
