@@ -6,7 +6,9 @@
 #include <FerNNClassifier.h>
 #include <fstream>
 #include <opencv2/legacy/legacy.hpp>
-#include <opencv2/gpu/gpu.hpp>    
+#include <opencv2/gpu/gpu.hpp>   
+#include "visca.h"
+#include <tchar.h> 
 
 //Bounding Boxes
 struct BoundingBox : public cv::Rect {
@@ -106,6 +108,9 @@ private:
   BoundingBox bbhull; // hull of good_boxes
   BoundingBox best_box; // maximum overlapping bbox
 
+  //test file
+  HANDLE file;
+
 public:
 
 	//Bounding Boxes
@@ -145,4 +150,5 @@ public:
   double getVar(const BoundingBox& box,const cv::Mat& sum,const cv::Mat& sqsum);
   bool bbComp(const BoundingBox& bb1,const BoundingBox& bb2);
   int clusterBB(const std::vector<BoundingBox>& dbb, std::vector<int>& indexes);
+  void camHandle(int height, int width);
 };

@@ -123,6 +123,9 @@ void TLD::init(const Mat& frame1,const Rect& box,FILE* bb_file){
   classifier.trainNN(nn_data);
   ///Threshold Evaluation on testing sets
   classifier.evaluateTh(nXT,nExT);
+
+  //test file
+  file = CreateFile(_T("TEST.txt"), GENERIC_READ | GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 }
 
 /* Generate Positive data
@@ -306,8 +309,10 @@ void TLD::processFrame(const cv::Mat& img1,const cv::Mat& img2,vector<Point2f>& 
       }
   }
   lastbox=bbnext;
-  if (lastboxfound)
+  if (lastboxfound){
     fprintf(bb_file,"%d,%d,%d,%d,%f\n",lastbox.x,lastbox.y,lastbox.br().x,lastbox.br().y,lastconf);
+	camHandle(img2.rows, img2.cols);
+  }
   else
     fprintf(bb_file,"NaN,NaN,NaN,NaN,NaN\n");
   if (lastvalid && tl)
@@ -793,5 +798,81 @@ void TLD::clusterConf(const vector<BoundingBox>& dbb,const vector<float>& dconf,
       }
   }
   printf("\n");
+}
+
+void TLD::camHandle(int height, int width)
+{
+	int cX = lastbox.x + lastbox.width / 2;
+	int cY = lastbox.y + lastbox.height / 2;
+	int xState = 0;
+	int yState = 0;
+	Rect r = Rect(width / 3, height / 3, width / 3, height / 3);
+	if (cX < r.x){
+		xState = 1;
+	}
+	else if (cX>r.br().x){
+		xState = 2;
+	}
+	if (cY < r.y){
+		yState = 1;
+	}
+	else if (cY>r.br().y){
+		yState = 2;
+	}
+	int state = (xState << 2) + yState;
+	BYTE SENDBUF[20];
+	BYTE CAMADD = 1;
+	BYTE PANSPEED = 13;
+	DWORD dwBytesWritten = 0;
+	switch (state)
+	{
+	case 0x00:
+		Visca_PanStop(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("stop\n\n\n\n\n");
+		break;
+	case 0x0A:
+		Visca_DownRight(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("downright\n\n\n\n\n");
+		break;
+	case 0x02:
+		Visca_Down(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("down\n\n\n\n\n");
+		break;
+	case 0x08:
+		Visca_Right(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("right\n\n\n\n\n");
+		break;
+	case 0x04:
+		Visca_Left(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("left\n\n\n\n\n");
+		break;
+	case 0x09:
+		Visca_UpRight(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("upright\n\n\n\n\n");
+		break;
+	case 0x06:
+		Visca_DownLeft(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("downleft\n\n\n\n\n");
+		break;
+	case 0x01:
+		Visca_Up(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("up\n\n\n\n\n");
+		break;
+	case 0x05:
+		Visca_UpLeft(SENDBUF, PANSPEED, CAMADD);
+		WriteFile(file, SENDBUF, 9, &dwBytesWritten, NULL);
+		printf("upleft\n\n\n\n\n");
+		break;
+	default:
+		break;
+	}
 }
 

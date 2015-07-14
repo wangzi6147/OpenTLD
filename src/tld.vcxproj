@@ -259,6 +259,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TLD.cpp" />
+    <ClCompile Include="vsica.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:/wangzi6147/Doc/git/OpenTLD/src/ZERO_CHECK.vcxproj">
@@ -270,6 +271,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kernel.h" />
+    <ClInclude Include="visca.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
