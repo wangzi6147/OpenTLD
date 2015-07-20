@@ -157,7 +157,6 @@ int main(int argc, char * argv[]){
       capture >> frame;
       cvtColor(frame, last_gray, CV_RGB2GRAY);
       frame.copyTo(first);
-	  size = Size(frame.cols*(float)fs.getFirstTopLevelNode()["resize_width"] , frame.rows*(float)fs.getFirstTopLevelNode()["resize_height"]);
   }
   else {
 	  while(!VI.isFrameNew(device));
@@ -166,8 +165,8 @@ int main(int argc, char * argv[]){
   }
 
   ///Initialization
+  size = Size(first.cols*(float)fs.getFirstTopLevelNode()["resize_width"], first.rows*(float)fs.getFirstTopLevelNode()["resize_height"]);
   while (fromfile&&capture.read(first)){
-	  resize(first, first, size);
 	  imshow("TLD", first);
 	  if (cvWaitKey(33) == ' '){
 		  break;
