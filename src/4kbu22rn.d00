@@ -7,7 +7,6 @@
 #include <videoInput.h>
 #include "nss_toolkit.h"
 #include "nsst_define.h"
-#include "ffmpegDecode.h"
 
 #pragma comment(linker, "/NODEFAULTLIB:atlthunk.lib")
 
@@ -23,9 +22,22 @@ bool rep = false;
 bool fromfile=false;
 string video;
 bool ifLogin = false;
-cv::Mat captureMat;
-//decoder
-ffmpegDecode *decoder=NULL;
+
+typedef struct {
+
+	int width;//图像宽
+
+	int height;//图像高
+
+	int frame_rate;//帧率
+
+	__int64 timestamp;//当前帧时间戳
+
+	char* data;//视频数据指针
+
+	int length;//数据长度
+
+} NPL_STREAM_VIDEO;
 
 
 void readBB(char* file){
@@ -188,24 +200,10 @@ int CALLBACK MediaStreamCallBack(NsstChannel* nsst_channel,
 	int buffer_size,
 	int user_data)
 {
-	cv::Mat temp;
 	//printf("%d", buffer_size);
-	FILE *testFile = fopen("D:\\1.h264", "ab+");
-	NPL_STREAM_VIDEO *test = (NPL_STREAM_VIDEO*)buffer;
-	fwrite(test->data, test->length, 1, testFile);
+	FILE *testFile = fopen("D:\\1.h264", "a+");
+	fwrite(buffer, buffer_size, 1, testFile);
 	fclose(testFile);
-	if (decoder==NULL)
-		decoder = new ffmpegDecode("D:\\1.h264");
-	decoder->readOneFrame();
-	temp = decoder->getDecodedFrame();
-	while (temp.data == NULL){
-		if (decoder->readOneFrame() < 0)
-			break;
-		temp = decoder->getDecodedFrame();
-	}
-	if (temp.data != NULL){
-		captureMat = temp;
-	}
 	return 0;
 }
 
@@ -227,9 +225,9 @@ int main(int argc, char * argv[]){
 	nsst_channel_.dev_id = device_id_;
 	nsst_channel_.channel = 0;
 	nsst_channel_.stream = 0; 
-	//CLEAR FILE
-	FILE *testFile = fopen("D:\\1.h264", "wb");
-	fclose(testFile);
+	NsstPTZParam param;
+	param.action = NS_PTZ_MOVE_LEFT;
+	param.speed = 50;
   //create a videoInput object
   videoInput VI;
   
@@ -300,40 +298,25 @@ int main(int argc, char * argv[]){
 
   ///Initialization
   size = Size(first.cols*(float)fs.getFirstTopLevelNode()["resize_width"], first.rows*(float)fs.getFirstTopLevelNode()["resize_height"]);
-
-  Sleep(1000);
+  while (fromfile&&capture.read(first)){
+	  resize(first, first, size);
+	  imshow("TLD", first);
+	  NSSTPTZControl(&nsst_channel_, &param);//TEST
+	  if (cvWaitKey(33) == ' '){
+	  break;
+	  }
+  }
 
   //media stream
   DrawParams params;
   params.draw_wnd = 0;
   params.width = 0;
   params.height = 0;
-  NSSTStartTransport(&nsst_channel_, NSST_TCP, &params, 4);
+  NSSTStartTransport(&nsst_channel_, NSST_TCP, &params, 1);
   NSSTStartPlay(&nsst_channel_);
   NSSTSetMediaStreamCallback(&nsst_channel_, MediaStreamCallBack, 0);
 
-  while (captureMat.data == NULL){
-	  continue;
-  }
-  //while (fromfile&&capture.read(first)){
-  while (captureMat.data != NULL){
-	  first = captureMat;
-	  resize(first, first, size);
-	  imshow("TLD", first);
-	  ////test control
-	  //NsstPTZParam param;
-	  //param.action = NS_PTZ_MOVE_LEFT;
-	  //param.speed = 50;
-	  //NSSTPTZControl(&nsst_channel_, &param);
-	  if (cvWaitKey(33) == ' '){
-	  break;
-	  }
-  }
-
-
-  //while (fromfile&&capture.read(first)){
-  while (captureMat.data!=NULL){
-	  first = captureMat;
+  while (fromfile&&capture.read(first)){
 	  resize(first, first, size);
 	  pMOG2->operator()(first, fgMaskMOG2, -0.1);
 	  erode(fgMaskMOG2, fgMaskMOG2, getStructuringElement(0, Size(2 * centerP + 1, 2 * centerP + 1), Point(centerP, centerP)));
@@ -343,7 +326,7 @@ int main(int argc, char * argv[]){
 	  hierarchy.clear();
 	  findContours(fgMaskMOG2, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0));
 	  for (int i = 0; i < contours.size(); i++){
-		  if (contourArea(contours[i]) < first.rows*first.cols / 40 || contourArea(contours[i]) > first.rows*first.cols*0.8){
+		  if (contourArea(contours[i]) < first.rows*first.cols / 40){
 			continue;
 		  }
 		r = boundingRect(contours[i]);
@@ -363,8 +346,6 @@ int main(int argc, char * argv[]){
 			  cvtColor(frame, last_gray, CV_RGB2GRAY);
 			  drawBox(frame, box);
 			  imshow("TLD", frame);
-			  imshow("FG Mask MOG 2", fgMaskMOG2);
-			  cvWaitKey(33);
 			  gotBB = true;
 			  break;
 		  }
@@ -407,9 +388,7 @@ GETBOUNDINGBOX:
   int frames = 1;
   int detections = 1;
 REPEAT:
-  //while((fromfile && capture.read(frame)) || !fromfile){
-  while (captureMat.data != NULL){
-	  frame = captureMat;
+  while((fromfile && capture.read(frame)) || !fromfile){
 	if(!fromfile) {
 		while(!VI.isFrameNew(device));
 		VI.getPixels(device, framePixels, false, true);
@@ -455,6 +434,5 @@ REPEAT:
     goto REPEAT;
   }
   fclose(bb_file);
-  delete decoder;
   return 0;
 }

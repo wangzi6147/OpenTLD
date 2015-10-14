@@ -85,7 +85,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\wangzi6147\Soft\opencv2.4.9\build_CUDA_VS2013;D:\wangzi6147\Soft\opencv2.4.9\sources\include;D:\wangzi6147\Soft\opencv2.4.9\sources\include\opencv;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\core\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\flann\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\imgproc\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\highgui\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\features2d\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\calib3d\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\ml\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\video\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\legacy\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\objdetect\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\photo\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\gpu\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\ocl\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\nonfree\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\contrib\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\stitching\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\superres\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\ts\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\videostab\include;D:\wangzi6147\Doc\git\OpenTLD\src\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\wangzi6147\Doc\ffmpeg-20150916-git-cbbd906-win32-dev\include;D:\wangzi6147\Soft\opencv2.4.9\build_CUDA_VS2013;D:\wangzi6147\Soft\opencv2.4.9\sources\include;D:\wangzi6147\Soft\opencv2.4.9\sources\include\opencv;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\core\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\flann\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\imgproc\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\highgui\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\features2d\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\calib3d\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\ml\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\video\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\legacy\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\objdetect\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\photo\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\gpu\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\ocl\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\nonfree\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\contrib\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\stitching\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\superres\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\ts\include;D:\wangzi6147\Soft\opencv2.4.9\sources\modules\videostab\include;D:\wangzi6147\Doc\git\OpenTLD\src\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -113,15 +113,17 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;D:\wangzi6147\Doc\git\OpenTLD\lib\Debug\tld.lib;D:\wangzi6147\Doc\git\OpenTLD\lib\Debug\LKTracker.lib;D:\wangzi6147\Doc\git\OpenTLD\lib\Debug\ferNN.lib;D:\wangzi6147\Doc\git\OpenTLD\lib\Debug\tld_utils.lib;videoInput.lib;opencv_videostab249d.lib;opencv_video249d.lib;opencv_ts249d.lib;opencv_superres249d.lib;opencv_stitching249d.lib;opencv_photo249d.lib;opencv_ocl249d.lib;opencv_objdetect249d.lib;opencv_nonfree249d.lib;opencv_ml249d.lib;opencv_legacy249d.lib;opencv_imgproc249d.lib;opencv_highgui249d.lib;opencv_gpu249d.lib;opencv_flann249d.lib;opencv_features2d249d.lib;opencv_core249d.lib;opencv_contrib249d.lib;opencv_calib3d249d.lib;glu32.lib;opengl32.lib;cudart.lib;nppc.lib;nppi.lib;npps.lib;cublas.lib;cufft.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\wangzi6147\Soft\opencv2.4.9\build_CUDA_VS2013\install\x86\vc12\lib;C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v6.5/lib/Win32;C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v6.5/lib/Win32/$(Configuration);../lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions> /machine:X86 /debug /SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;D:\wangzi6147\Doc\git\OpenTLD\lib\Debug\tld.lib;D:\wangzi6147\Doc\git\OpenTLD\lib\Debug\LKTracker.lib;D:\wangzi6147\Doc\git\OpenTLD\lib\Debug\ferNN.lib;D:\wangzi6147\Doc\git\OpenTLD\lib\Debug\tld_utils.lib;videoInput.lib;opencv_videostab249d.lib;opencv_video249d.lib;opencv_ts249d.lib;opencv_superres249d.lib;opencv_stitching249d.lib;opencv_photo249d.lib;opencv_ocl249d.lib;opencv_objdetect249d.lib;opencv_nonfree249d.lib;opencv_ml249d.lib;opencv_legacy249d.lib;opencv_imgproc249d.lib;opencv_highgui249d.lib;opencv_gpu249d.lib;opencv_flann249d.lib;opencv_features2d249d.lib;opencv_core249d.lib;opencv_contrib249d.lib;opencv_calib3d249d.lib;glu32.lib;opengl32.lib;cudart.lib;nppc.lib;nppi.lib;npps.lib;cublas.lib;cufft.lib;nss_toolkit.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\wangzi6147\Doc\ffmpeg-20150916-git-cbbd906-win32-dev\lib;D:\wangzi6147\Soft\opencv2.4.9\build_CUDA_VS2013\install\x86\vc12\lib;C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v6.5/lib/Win32;C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v6.5/lib/Win32/$(Configuration);../lib/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ImportLibrary>D:/wangzi6147/Doc/git/OpenTLD/bin/Debug/run_tld.lib</ImportLibrary>
       <ProgramDataBaseFile>D:/wangzi6147/Doc/git/OpenTLD/bin/Debug/run_tld.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version>
       </Version>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -315,6 +317,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ffmpegDecode.cpp" />
     <ClCompile Include="run_tld.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +336,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:/wangzi6147/Doc/git/OpenTLD/src/tld_utils.vcxproj">
       <Project>ED61932B-3E52-4AF9-8D52-924634A6A57B</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ffmpegDecode.h" />
+    <ClInclude Include="nsddefine.h" />
+    <ClInclude Include="nsdetector.h" />
+    <ClInclude Include="nsstplayer.h" />
+    <ClInclude Include="nsstplayer_define.h" />
+    <ClInclude Include="nsst_define.h" />
+    <ClInclude Include="nss_toolkit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
